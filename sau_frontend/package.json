@@ -7,11 +7,30 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:serve": "electron ./electron/main.cjs",
+    "electron:dev": "node scripts/electron-dev.cjs",
+    "electron:build": "electron-builder"
+  },
+  "build": {
+    "electronDownload": {
+      "mirror": "https://npmmirror.com/mirrors/electron/"
+    },
+    "asar": false,
+    "appId": "com.xinjiangUniversity.iams",
+    "productName": "xxxxxxx系统",
+    "directories": {
+      "output": "build-ele"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ]
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
     "axios": "^1.9.0",
+    "electron": "^35.1.2",
     "element-plus": "^2.9.11",
     "pinia": "^3.0.2",
     "sass": "^1.89.1",
