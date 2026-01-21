@@ -29,6 +29,13 @@ function createWindow() {
         autoHideMenuBar: true, // 自动隐藏菜单栏（按Alt键才会临时显示）
     })
 
+     // 新增：开启右键调起开发者工具
+    win.webContents.on('context-menu', (e, params) => {
+        // win.webContents.openDevTools(); // 右键直接打开
+        // 或自定义菜单：仅显示"检查"选项
+        require('electron').Menu.buildFromTemplate([{ label: '检查', click: () => win.webContents.openDevTools() }]).popup();
+    });
+
     // 4. 统一日志输出编码（转义中文）
     const logSuccess = (msg) => {
         console.log(Buffer.from(msg, 'utf-8').toString('utf-8'));
