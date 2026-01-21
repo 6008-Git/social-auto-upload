@@ -61,7 +61,7 @@ setTimeout(() => {
     viteProcess.kill();
     process.exit(code);
   });
-}, 3000); // 等待3秒让Vite服务器启动
+}, 500); // 等待3秒让Vite服务器启动
 
 viteProcess.on('close', (code) => {
   console.log(`Vite process exited with code ${code}`);
